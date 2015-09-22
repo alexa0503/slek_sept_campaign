@@ -106,7 +106,7 @@ $sign_package = $jssdk->getSignPackage();?><!DOCTYPE html>
             var mobile = $('#mobile').val();
             var url = '../api/web/post'
             $.post(url,{username:username,region:region,mobile:mobile},function(data){
-                alert(ret.msg);
+                alert(data.msg);
             },"JSON")
             return false;
         })
