@@ -31,7 +31,7 @@ class DefaultController extends Controller
 	{
 		$return = array(
 			'ret' => 0,
-			'msg' => '',
+			'msg' => '提交成功',
 			);
 		$session = $request->getSession();
 		if( $request->getMethod() == "POST"){
@@ -75,9 +75,8 @@ class DefaultController extends Controller
 			else{
 				$info = new Entity\Info;
 				$info->setUsername($request->get('username'));
-				$info->setEmail($request->get('email'));
+				$info->setEmail($request->get('region'));
 				$info->setMobile($request->get('mobile'));
-				$info->setJob($request->get('job'));
 				$info->setCreateIp($request->getClientIp());
 				$info->setCreateTime(new \DateTime('now'));
 				$em->persist($info);

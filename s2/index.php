@@ -98,6 +98,20 @@ $sign_package = $jssdk->getSignPackage();?><!DOCTYPE html>
     });
   });
 </script>
+<script type="text/javascript">
+    $().ready(function(){
+        $('.page17Btn1').click(function(){
+            var username = $('#username').val();
+            var region = $('#region').val();
+            var mobile = $('#mobile').val();
+            var url = '../api/web/post'
+            $.post(url,{username:username,region:region,mobile:mobile},function(data){
+                alert(ret.msg);
+            },"JSON")
+            return false;
+        })
+    })
+</script>
 </head>
 
 <body>
@@ -277,9 +291,9 @@ $sign_package = $jssdk->getSignPackage();?><!DOCTYPE html>
                 <div class="h832">
                     <div class="innerDiv">
                         <img src="images/page17Img1.png" class="abs bgImg">
-                        <input type="text" class="inputTxt inputTxt1">
-                        <input type="text" class="inputTxt inputTxt2">
-                        <input type="text" class="inputTxt inputTxt3">
+                        <input type="text" class="inputTxt inputTxt1" id="username">
+                        <input type="text" class="inputTxt inputTxt2" id="mobile">
+                        <input type="text" class="inputTxt inputTxt3" id="region">
                         <a href="javascript:void(0);" class="abs page17Btn1"><img src="images/page17Btn1.png"></a>
                     </div>
                 </div>
