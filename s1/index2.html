@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>做洗发水生意的秘诀！</title>
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/swiper.3.1.2.jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.imgpreload.min.js"></script>
+    <script type="text/javascript">
+var audioElement = document.createElement('audio');
+audioElement.setAttribute('src', './music.mp3');
+audioElement.load()
+audioElement.addEventListener("load", function() { 
+  audioElement.play(); 
+}, true);
+
+var audio = new Audio('music.mp3');
+audio.play();
+
+</script> 
+
+	<script type="text/javascript">
+		
+
+		var wHeight;
+		var wWidth;
+		function effect1 () {
+			$('.animate-image').eq(0).animate({
+				opacity:1,
+				top:"+=400"
+			},1000,function(){
+				$('.animate-image').eq(1).animate({
+					opacity:1,
+					top:"+=600"
+				},1000,function(){
+					$('.animate-image').eq(2).animate({
+						opacity:1,
+						top:"+=800"
+					},1000,function(){
+					})
+				})
+			});
+		}
+
+		$(document).ready(function() {
+			wHeight = $(window).height();
+			if (wHeight < 832) {
+				wHeight = 832;
+			}
+			$('.page').height(wHeight);
+			$('.h832').css('padding-top',(wHeight-832)/2+'px');
+			
+			var bili = wHeight / 1039;
+			$('.outDiv,.swiper-slide,.page-loading').height(wHeight);
+			
+			var wWidth = $('.outDiv').width();
+			var imgs = document.images;
+			var the_images = [];
+			var imgs = document.images;
+			$('.animate-image').each(function(i){
+				var l = (wWidth - $(this).find('img').width())/2;
+				$(this).css('left',l+'px');
+			})
+			//the_images.push('../images/bkg.jpg');
+			for (var i = 0; i < imgs.length; i++) {
+				the_images.push(imgs[i].src);
+			}
+			$('.animate-image').animate({opacity:0,top:'-100'},0)
+			var num = 1;
+			var lHeight=527;
+			jQuery.imgpreload(the_images,
+			{
+				each: function()
+				{
+					var pattern = new RegExp( "i=(\\d)", "gi" );
+					var m = pattern.exec($(this).attr('src'));
+					var status = $(this).data('loaded')?'success':'error';
+					//$('#status').append('<li>' + m[1] + ': ' + $(this).attr('src') + ' ' + status + '</li>');
+					$('.loadingBg').css('height',parseInt(num/the_images.length*lHeight)+'px');
+					$('.loadingTxt').find('span').html(parseInt(100*(num/the_images.length)));
+					++num;
+				},
+				all: function()
+				{
+					$('.loadingPage').fadeOut(500);
+					$('.swiper-wrapper').fadeIn(500);
+					$('.page3-text').fadeOut(0);
+					effect1();
+				}
+			});
+
+			//alert(imgs.length)
+			
+		    //$('.logo').css('-webkit-transform', 'scale(' + bili + ')');
+		    //$('.page').css('-webkit-transform', "translate(0px," + (-(1039 - (1039 * bili)) / 2) + "px) scale(" + bili + ")");
+		    //$('.page2').css('margin-top', -(1039 - wHeight) / 2 + 'px');
+			//$('.outDiv').css('margin-top',(-(1039-wHeight)/6-40)+'px');
+			//$('.page2,.page3').css('margin-top',(-(1039-wHeight)/6-40+1039)+'px');
+			var mySwiper = new Swiper ('.swiper-container', {
+				direction: 'vertical',
+				loop: false,
+				onSlideChangeStart:function(e){
+					if( e.activeIndex == 0){
+						effect1();
+						$('.page3-text').fadeOut(0);
+					}
+					else if( e.activeIndex == 1){
+						$('.animate-image').animate({opacity:0,top:'-100'},0)
+						$('.page3-text').fadeIn(1000);
+					}
+					else  if( e.activeIndex == 2){
+						$('.page3-text').fadeOut(0);
+						$('.p5-image-02').fadeOut(0);
+						$('.p5-image-01').animate({opacity:0,top:'-350'},0);
+						$('.p4L1').stop().animate({height:135},'500','linear',function(){
+							$('.p4L2').stop().animate({height:150},'500','linear',function(){
+								$('.p4L3').stop().animate({height:170},'500','linear',function(){
+									$('.page4Img1').fadeIn(500);
+									setTimeout(function(){
+										$('.p4L4').stop().animate({height:20},'330','linear',function(){
+											$('.p4L5').stop().animate({height:90},'330','linear',function(){
+												$('.p4L6').stop().animate({height:155},'330','linear',function(){
+													$('.page4Img2').fadeIn(500);
+													});
+												});
+											});
+										},1000);
+									})
+								})
+							})
+					}
+					else if(e.activeIndex == 3){
+						$('.p5-image-01').animate({opacity:1,top:'+=500'},1000)
+						$('.p5-image-02').fadeIn(1000);
+						$('.p6-image-01').fadeOut(0);
+						$('.p6-image-02').animate({opacity:0,top:'-100'},1000)
+						$('.p6-image-03').animate({opacity:0.3},0)
+					}
+					else if(e.activeIndex == 4){
+						$('.p5-image-01').animate({opacity:0,top:'-350'},0)
+						$('.p5-image-02').fadeOut(0);
+						$('.p6-image-01').addClass('upShow').show();
+						$('.p6-image-02').animate({opacity:1,top:'+=920'},1000,function(){
+							$('.p6-image-03').animate({opacity:1},300)
+						})
+						
+					}
+					
+					else if(e.activeIndex == 5){
+						$('.p6-image-01').removeClass('upShow').hide();
+						$('.p7-t').addClass('upShow').show();
+						
+					}
+					else if(e.activeIndex == 6){
+						$('.p8-t').addClass('upShow').show();
+						
+						}
+					else if(e.activeIndex == 8){
+						$('.t1').addClass('t1Act');
+						$('.t2').addClass('t2Act');
+						$('.t3').addClass('t3Act');
+						setTimeout(function(){
+							$('.p6a-t').addClass('upShow').show();
+							},2500);
+						}
+					else if(e.activeIndex == 9){
+						$('.p6a-ta').addClass('upShow').show();
+						}
+						
+					else if(e.activeIndex == 10){
+						$('.p14-t').addClass('upShow').show();
+						$('.p14-i1').addClass('p14-i1Act');
+						$('.p14-i2').addClass('p14-i2Act');
+						$('.p14-i3').addClass('p14-i3Act');
+						$('.p14-i4').addClass('p14-i4Act');
+						$('.p14-i5').addClass('p14-i5Act');
+					}
+					else if(e.activeIndex == 11){
+						$('.p15Bg').addClass('p15BgAct').show();
+						setTimeout(function(){
+							$('.p15-bar3').fadeIn(500);
+							$('.p15-t1').addClass('upShow').show();
+							},1000);
+						}
+					else if(e.activeIndex == 12){
+						$('.p16I1').fadeIn(500);
+						$('.p16I2').fadeIn(500);
+						}
+				}
+			})
+
+		});
+		
+		function page9Act(){
+			$('.p9-ia').fadeOut(1000);
+			$('.p9-ib').fadeIn(1000);
+			$('.p9-t').fadeOut(500);
+			setTimeout(function(){
+				$('.p9-ib').fadeOut(1000);
+				$('.p9-ic').fadeIn(1000);
+				setTimeout(function(){
+					$('.p9-ic').fadeOut(1000);
+					$('.p9l1').fadeIn(1000);
+					$('.p9l2').fadeIn(1000);
+					$('.p9l3').addClass('upShow').show();
+					},1500);
+				},1500);
+			}
+	</script>
+	<script type="text/javascript">
+		var phoneWidth = parseInt(window.screen.width);
+		var phoneScale = phoneWidth / 640;
+		var ua = navigator.userAgent;
+		if (/Android (\d+\.\d+)/.test(ua)) {
+			var version = parseFloat(RegExp.$1);
+			if (version > 2.3) {
+				document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+			} else {
+				document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+			}
+		} else {
+			document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+		}
+	</script>
+</head>
+<body>
+	<div class="outDiv swiper-container">
+		<!--loading页面 开始-->
+		<div class="page loadingPage">
+            <div class="h832">
+                <div class="innerDiv">
+                    <div class="loadingBlock">
+                        <div class="innerDiv">
+                            <div class="loadingBg"></div>
+                            <img src="images/loadingImg1.png" class="abs loadingImg1">
+                            <div class="loadingTxt">
+                                <font style="font-size:44px;"><span>0</span>%</font><br>精彩载入中……
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!--loading页面 结束-->
+		<div class="swiper-wrapper">
+			<!--页面2 开始-->
+			<div class="swiper-slide" id="swiper-page-0">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div><img src="images/header.png" width="640" height="184" /></div>
+					<div class="content">
+						<div class="animate-image"><img src="images/page2-text-01.png" width="323" height="78" /></div>
+						<div class="animate-image"><img src="images/page2-text-02.png" width="322" height="78" /></div>
+						<div class="animate-image"><img src="images/page2-text-03.png" width="357" height="126" /></div>
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面2 结束-->
+			<!--页面3 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page3-icon-01"><img src="images/icon-page3-01.png" ></div>
+					<div class="page3-icon-02"><img src="images/icon-page3-02.png" ></div>
+					<div class="page3-icon-03"><img src="images/icon-page3-03.png" ></div>
+					<div class="page3-text"><img src="images/page3-text.png" width="324" height="174" /></div>
+				</div>
+				<div class="page3-bkg"><img src="images/page3-bkg.png" width="640" height="624" /></div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面3 结束-->
+			<!--页面4 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page4-content content">
+                    	<div class="innerDiv">
+                        	<img src="images/page4.png" width="505" height="750">
+                            <img src="images/page4Img1.png" class="abs page4Img1" style="display:none;">
+                            <img src="images/page4Img2.png" class="abs page4Img2" style="display:none;">
+                            <div class="p4L p4L1" style="height:0;"></div>
+                            <div class="p4L p4L2" style="height:0;"></div>
+                            <div class="p4L p4L3" style="height:0;"></div>
+                            <div class="p4L p4L4" style="height:0;"></div>
+                            <div class="p4L p4L5" style="height:0;"></div>
+                            <div class="p4L p4L6" style="height:0;"></div>
+                        </div>
+                    </div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面4 结束-->
+
+			<!--页面5 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page4 content">
+						<!--内容-->
+						<img src="images/p5-i.png" width="590" height="475"  alt="" class="p5-image-01" />
+						<img src="images/p5-t.png" width="640" height="200"  alt="" class="p5-image-02" />
+						<!--/内容-->
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面5 结束-->
+			<!--页面6 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page6 content">
+						<!--内容-->
+						<img src="images/p6-i.png" width="640" height="367"  alt=""/>
+						<img class="p6-image-01" src="images/p6-t1.png" width="640" height="225"  alt=""/>
+						<img class="p6-image-02" src="images/p6-t2.png" width="640" height="234"  alt=""/>
+						<img class="p6-image-03" src="images/p6-t3.png" width="640" height="234"  class="bottombkg" alt=""/>
+						<!--/内容-->
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面6 结束-->
+			
+			<!--页面7 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page7 content">
+						<!--内容-->
+						<img src="images/p7-i.png" width="640" height="615"  alt=""/>
+						<img src="images/p7-t.png" width="640" height="178" class="p7-t"  alt=""/>
+						<!--/内容-->
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面7 结束-->
+			<!--页面8 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page8 content">
+						<!--内容-->
+						<img src="images/p8-i.png" width="640" height="695"  alt=""/>
+						<img src="images/p8-t.png" width="640" height="223" class="tx p8-t"  alt=""/>
+
+
+						<!--/内容-->
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面8 结束-->
+			<!--页面10 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page10 content">
+						<!--内容-->
+						<img src="images/p9-ia.png" class="abs bgImg p9-ia"  alt="" onClick="page9Act();"/>
+                        <img src="images/p9-ib.png" class="abs bgImg p9-ib"  alt="" style="display:none;"/>
+                        <img src="images/p9-ic.png" class="abs bgImg p9-ic"  alt="" style="display:none;"/>
+						<img src="images/p9-t.png" class="abs p9-t" width="640" height="41"  alt=""/>
+                        
+                        <img src="images/p9-i.png" width="640" height="439" class="flo p9l1"  alt="" style="display:none;"//>
+						<img src="images/p11-i.png" width="199" height="570" class="bot p9l2"  alt="" style="display:none;"//>
+						<img src="images/p12-t.png" width="640" height="175" class="tx p12-t p9l3"  alt="" style="display:none;"//>
+						<!--/内容-->
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面10 结束-->
+            
+            <!--页面6a 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page6a content">
+						<!--内容-->
+                        <div class="p6a-i">
+                        	<div class="innerDiv">
+                            	<img src="images/p6a-i.png" width="640" height="139"  alt=""/>
+                                <div class="abs t1"></div>
+                                <div class="abs t2"></div>
+                                <div class="abs t3"></div>
+                            </div>
+                        </div>
+
+						<img src="images/p6a-t.png" width="640" height="96" class="tx p6a-t"  alt="" style="display:none;"/>
+
+						<!--/内容-->
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面6a 结束-->
+            
+			<!--页面13 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page13 content">
+						<!--内容-->
+						<img src="images/p13-i1.png" width="434" height="508" class="i1" alt=""/>
+						<img src="images/p13-i2.png" width="270" height="500"  class="i2" style="bottom:120px" alt=""/>
+                        <img src="images/p6a-ta.png" class="p6a-ta" alt="" style="display:none; visibility:hidden"/>
+						<!--/内容-->
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面13 结束-->
+			<!--页面14 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page14 content">
+						<!--内容-->
+						<img src="images/p14-i.png" width="478" height="445" class="flo"  alt=""/>
+						<img src="images/p14-i1.png" width="172" height="172"  class="i1 p14-i1" alt=""/>
+						<img src="images/p14-i2.png" width="144" height="144" class="i2 p14-i2"  alt=""/>
+						<img src="images/p14-i3.png" width="162" height="162" class="i3 p14-i3"  alt=""/>
+						<img src="images/p14-i4.png" width="177" height="177"  class="i4 p14-i4" alt=""/>
+						<img src="images/p14-i5.png"   class="i5 p14-i5" alt=""/>
+						<img src="images/p14-t.png"  class="tx p14-t"  alt="" style="display:none;"/>
+						<!--/内容-->
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面14 结束-->
+			<!--页面15 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div class="page15 content">
+						<!--内容-->
+                        <div class="p15-bar">
+                        	<div class="innerDiv">
+                            	<img src="images/p15-bar.png" width="640" height="341"  alt=""/>
+                                <div class="p15Bg" style="display:none;"></div>
+                                <img src="images/p15-bar3.png" class="abs p15-bar3" style="display:none;">
+                            </div>
+                        </div>
+						<img src="images/p15-ib.png" width="640" height="381" class="ib"  alt=""/>
+						<img src="images/p15-t1.png" width="640" height="271" class="tx p15-t1"  alt="" style="display:none;"/>
+						<!--/内容-->
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面15 结束-->
+			<!--页面16 开始-->
+			<div class="swiper-slide">
+				<div class="innerDiv">
+					<img src="images/logo.png" width="101" height="98" class="logo" />
+					<div><img src="images/header.png" width="640" height="184" /></div>
+					<div class="page16 content">
+						<!--内容-->
+						<img src="images/p16-i.png" width="640" height="568"  alt=""/>
+						<img src="images/p16-t2.png" width="640" height="88"  class="tx p16I1" alt="" style="display:none;"/>
+						<img src="images/p17t-to16.png"  class="qr p16I2" alt="" style="display:none;"/>
+
+						<!--/内容-->
+					</div>
+				</div>
+				<div class="btnSlider"><img src="images/icon-arrow.png" width="42" height="24" /></div>
+			</div>
+			<!--页面16 结束-->
+
+
+
+
+
+
+		</div>
+	</div>
+    
+</body>
+
+</html>
