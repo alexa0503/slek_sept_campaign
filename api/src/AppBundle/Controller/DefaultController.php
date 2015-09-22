@@ -75,7 +75,7 @@ class DefaultController extends Controller
 			else{
 				$info = new Entity\Info;
 				$info->setUsername($request->get('username'));
-				$info->setRegion($request->get('region'));
+				$info->setRegion($request->get('region'));//
 				$info->setMobile($request->get('mobile'));
 				$info->setCreateIp($request->getClientIp());
 				$info->setCreateTime(new \DateTime('now'));
