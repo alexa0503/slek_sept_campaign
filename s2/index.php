@@ -285,17 +285,17 @@ $sign_package = $jssdk->getSignPackage();?><!DOCTYPE html>
                         	<p class="quset">水莲精油洗发露最大的特点是？</p>
                             <a href="javascript:void(0);" class="abs page16Btn page16Btn1">滋润</a>
                             <a href="javascript:void(0);" class="abs page16Btn page16Btn2">轻盈</a>
-                            <a href="javascript:void(0);" class="abs page16Btn right page16Btn3" onClick="goNextQues();">滋润轻盈兼得</a>
+                            <a href="javascript:void(0);" class="abs page16Btn page16Btn3" onClick="goNextQues();">滋润轻盈兼得</a>
                         </div>
                         <div class="q2" style="display:none;">
                         	<p class="quset">下列哪一项，是舒蕾水莲精油系列的成分？</p>
                             <a href="javascript:void(0);" class="abs page16Btn page16Btn1">牛油果精华</a>
                             <a href="javascript:void(0);" class="abs page16Btn page16Btn2">核桃精华</a>
-                            <a href="javascript:void(0);" class="abs page16Btn right page16Btn3" onClick="goNextQues();">莲花精华</a>
+                            <a href="javascript:void(0);" class="abs page16Btn page16Btn3" onClick="goNextQues();">莲花精华</a>
                         </div>
                         <div class="q3" style="display:none;">
                         	<p class="quset">舒蕾水莲精油洗发露将于什么时候上市？</p>
-                            <a href="javascript:void(0);" class="abs page16Btn right page16Btn1" onClick="goNextQues();">2015.10.10</a>
+                            <a href="javascript:void(0);" class="abs page16Btn page16Btn1" onClick="goNextQues();">2015.10.10</a>
                             <a href="javascript:void(0);" class="abs page16Btn page16Btn2">2015.11.11</a>
                             <a href="javascript:void(0);" class="abs page16Btn page16Btn3">2015.12.12</a>
                         </div>
