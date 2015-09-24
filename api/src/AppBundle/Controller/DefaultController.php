@@ -31,7 +31,7 @@ class DefaultController extends Controller
 	{
 		$return = array(
 			'ret' => 0,
-			'msg' => '提交成功',
+			'msg' => '你的信息已经提交。',
 			);
 		$session = $request->getSession();
 		if( $request->getMethod() == "POST"){
