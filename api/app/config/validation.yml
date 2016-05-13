@@ -1,4 +1,0 @@
-AppBundle\Entity\Page:
-    properties:
-        title:
-            - NotBlank : ~
